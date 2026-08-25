@@ -1,3 +1,15 @@
-.venv/
-.env
+*.csv
+*.zip
+*.arff
+*.txt
+catboost_info/
 __pycache__/
+.env
+.venv/
+.my_env/
+my_env/
+mlflow_tutorial/
+tst_git/
+nltk_data/
+Study-materials/
+Solutions (File responses)-20260523T072155Z-3-001/
