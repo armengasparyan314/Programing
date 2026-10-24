@@ -23,18 +23,18 @@ app = FastAPI(title="Ensemble ML API (CatBoost + XGBoost)")
 
 # 3. Սահմանում ենք մուտքային տվյալների սխեման (Pydantic)
 class CustomerFeatures(BaseModel):
-    Age: float
     CreditScore: float
-    EstimatedSalary: float
+    Gender: int
+    Age: float
+    Tenure: int
     Balance: float
     NumOfProducts: int
-    Tenure: int
-    Gender: int
-    IsActiveMember: int
-    Geography_Germany: bool
     HasCrCard: int
+    IsActiveMember: int
+    EstimatedSalary: float
+    Geography_France: bool 
+    Geography_Germany: bool
     Geography_Spain: bool
-    Geography_France: bool
     old_customers: bool
 
 
