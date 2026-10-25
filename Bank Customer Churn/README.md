@@ -40,7 +40,7 @@ Customer churn (attrition) is a critical metric for retail banking institutions.
 * **Language**: Python 3.12.3
 * **Framework**: FastAPI, Uvicorn, Pydantic
 * **ML Libraries**: CatBoost, XGBoost, Lightgbm Scikit-Learn, Pandas, NumPy, Matplotlib, Seaborn, Joblib
-* **DevOps**: Docker, Google Cloud Run
+* **DevOps**: Doker, Google Cloud Run
 
 
 # Bank Customer Churn Prediction API
