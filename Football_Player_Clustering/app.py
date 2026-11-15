@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -20,7 +21,11 @@ st.write("This interactive web application groups Premier League players using u
 # 1. Տվյալների բեռնման և մշակման ֆունկցիա (Cache-ավորված)
 @st.cache_data
 def load_and_prep_data():
-    df = pd.read_csv('premier_league_complete_stats_until31thGameDayOnSeason2025-26.csv', encoding='latin-1')
+    # Ապահովագրված և ճշգրիտ ուղի os.path-ի միջոցով
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(current_dir, 'premier_league_complete_stats_until31thGameDayOnSeason2025-26.csv')
+    
+    df = pd.read_csv(csv_path, encoding='latin-1')
     
     drop_cols = ['team_name', 'bigChancesMissed', 'cleanSheet', 'clearances', 'dispossessed', 'dribbledPast', 'errorLeadToGoal', 'errorLeadToShot',
                  'freeKickGoal',  'goalsPrevented', 'headedGoals', 'highClaims', 'hitWoodwork', 'leftFootGoals', 'savesParried',
@@ -91,7 +96,7 @@ df['PCA2'] = x_pca[:, 1]
 score = silhouette_score(x_scaled, df['Cluster_Raw'])
 st.info(f"**Silhouette Score for K = {k_value}:** `{score:.4f}`")
 
-# Գրաֆիկ՝ հայտնի խաղացողների նշումով (ինչպես քո կոդում էր)
+# Գրաֆիկ՝ հայտնի խաղացողների նշումով
 st.subheader(f"Player Clusters Visualization (K = {k_value})")
 
 fig, ax = plt.subplots(figsize=(10, 6))
